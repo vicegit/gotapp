@@ -1,0 +1,13 @@
+.logoColor1 {
+    color: #fed189;
+}
+
+.logoColor2 {
+    color: #00a0df !important;
+}
+
+a.logo {
+    font-size: 22px;
+    font-weight: 300;
+    color: #fed189;
+}

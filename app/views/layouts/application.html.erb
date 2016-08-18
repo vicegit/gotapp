@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gotapp</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand logo" href=""><span class="logoColor1">GOT</span><span class="logoColor2">APP</span></a>
+        </div>
+        
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <% if user_signed_in? %>
+              <li><%= link_to current_user.email %></li>
+              <li><%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="active"><%= link_to "Administrador" , root_path %></li>
+            <li><a href="">Item1</a></li>
+            <li><a href="">Item2</a></li>
+            <li><a href="">Item3</a></li>
+          </ul>
+          <ul class="nav nav-sidebar">
+            <li><a href="">Item4</a></li>
+            <li><a href="">Item5</a></li>
+            <li><a href="">Item6</a></li>
+            <li><a href="">Item7</a></li>
+            <li><a href="">Item8</a></li>
+          </ul>
+          <ul class="nav nav-sidebar">
+            <li><a href="">Item9</a></li>
+            <li><a href="">Item10</a></li>
+            <li><a href="">Item11</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-10 col-md-offset-2 main">
+          <% if notice %>
+            <div class="alert alert-success" role="alert"><%= notice %></div>
+          <% end %>
+          <% if alert %>
+            <div class="alert alert-danger" role="alert"><%= alert %></div>
+          <% end %>
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
