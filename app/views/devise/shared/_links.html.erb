@@ -1,25 +1,25 @@
 <%- if controller_name != 'sessions' %>
-  <%= link_to "Iniciar Sessión", new_session_path(resource_name) %><br />
+<%= link_to t(".Ingresar", :default => "Ingresar"), new_session_path(resource_name) %><br />
 <% end -%>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <%= link_to "Registrarse", new_registration_path(resource_name) %><br />
+<%= link_to t(".Registrarse", :default => "Registrarse"), new_registration_path(resource_name) %><br />
 <% end -%>
 
-<%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <%= link_to "Olvido su contraseña?", new_password_path(resource_name) %><br />
+<%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
+<%= link_to t(".Olvido_su_contraseña", :default => "Olvido su contraseña?"), new_password_path(resource_name) %><br />
 <% end -%>
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
-  <%= link_to "No recibe las instrucciones de confirmación?", new_confirmation_path(resource_name) %><br />
+<%= link_to t('.Aún_no_ha_recibido_sus_instrucciones_de_confirmación', :default => "Aún no ha recibido sus instrucciones de confirmación?"), new_confirmation_path(resource_name) %><br />
 <% end -%>
 
 <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
-  <%= link_to "No recibe las instrucciones de desbloqueo?", new_unlock_path(resource_name) %><br />
+<%= link_to t('.Aún_no_ha_recibido_sus_instrucciones_de_desbloqueo', :default => "Aún no ha recibido sus instrucciones de desbloqueo?"), new_unlock_path(resource_name) %><br />
 <% end -%>
 
 <%- if devise_mapping.omniauthable? %>
   <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to "Iniciado sessión con #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) %><br />
+  <%= link_to t('.ingresar_con_proveedor', :provider => provider.to_s.titleize, :default => "Ingresar con #{provider.to_s.titleize}"), omniauth_authorize_path(resource_name, provider) %><br />
   <% end -%>
 <% end -%>
