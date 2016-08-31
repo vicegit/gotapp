@@ -103,3 +103,13 @@ body {
   display: inline-block;
   border-radius: 50%;
 }
+
+.navbar-inverse .navbar-brand {
+    color: #00a0df !important;
+}
+
+.login-img-body{
+  background-image: url(/assets/bg.jpg);
+  background-size: cover;
+  background-repeat:no-repeat;
+}

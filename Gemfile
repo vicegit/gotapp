@@ -51,3 +51,9 @@ gem 'devise'
 gem 'mysql2'
 
 gem 'devise-bootstrap-views'
+
+gem 'bootstrap-generators'
+
+gem 'record_tag_helper'
+
+gem 'jquery-datatables-rails'

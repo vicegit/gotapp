@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cod: MyString
+  ci: MyString
+  nombre: MyString
+  direccion: MyString
+  telefono: MyString
+  fecha_contrato: 2016-08-31
+  fecha_conexion: 2016-08-31
+  estado_cuenta: MyString
+  observacion: MyString
+
+two:
+  cod: MyString
+  ci: MyString
+  nombre: MyString
+  direccion: MyString
+  telefono: MyString
+  fecha_contrato: 2016-08-31
+  fecha_conexion: 2016-08-31
+  estado_cuenta: MyString
+  observacion: MyString
