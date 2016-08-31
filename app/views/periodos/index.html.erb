@@ -1,0 +1,46 @@
+<div class="page-header">
+  <%= link_to new_periodo_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Periodo
+  <% end %>
+  <h1>Listing periodos</h1>
+</div>
+
+<div class="table-responsive">
+  <table id="tablaperiodo" class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Cod</th>
+            <th>Mes ano</th>
+            <th>Fecha vencimiento</th>
+            <th>Estado periodo</th>
+            <th>Fecha inicio</th>
+            <th>Fecha fin</th>
+            <th>Cantidad dias</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @periodos) do |periodo| %>
+            <td><%= periodo.cod %></td>
+            <td><%= periodo.mes_ano %></td>
+            <td><%= periodo.fecha_vencimiento %></td>
+            <td><%= periodo.estado_periodo %></td>
+            <td><%= periodo.fecha_inicio %></td>
+            <td><%= periodo.fecha_fin %></td>
+            <td><%= periodo.cantidad_dias %></td>
+            <td><%= link_to 'Show', periodo %></td>
+        <td><%= link_to 'Edit', edit_periodo_path(periodo) %></td>
+        <td><%= link_to 'Destroy', periodo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<script>
+  $('#tablaperiodo').DataTable({
+  });
+</script>

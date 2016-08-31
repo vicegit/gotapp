@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :periodos
   resources :clientes
   devise_for :users
   root 'admin#index'
