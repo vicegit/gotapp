@@ -1,0 +1,48 @@
+<div class="page-header">
+  <%= link_to new_lectura_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Lectura
+  <% end %>
+  <h1>Listing lecturas</h1>
+</div>
+
+<div class="table-responsive">
+  <table id="tablalectura" class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Estado medidor</th>
+            <th>Numero medidor</th>
+            <th>Fecha</th>
+            <th>Lector</th>
+            <th>Anterior</th>
+            <th>Actual</th>
+            <th>Consumo</th>
+            <th>Exceso</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @lecturas) do |lectura| %>
+            <td><%= lectura.estado_medidor %></td>
+            <td><%= lectura.numero_medidor %></td>
+            <td><%= lectura.fecha %></td>
+            <td><%= lectura.lector %></td>
+            <td><%= lectura.anterior %></td>
+            <td><%= lectura.actual %></td>
+            <td><%= lectura.consumo %></td>
+            <td><%= lectura.exceso %></td>
+            <td><%= link_to 'Show', lectura %></td>
+        <td><%= link_to 'Edit', edit_lectura_path(lectura) %></td>
+        <td><%= link_to 'Destroy', lectura, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<script>
+  $('#tablalectura').DataTable({
+  });
+</script>

@@ -1,0 +1,38 @@
+<div class="page-header">
+  <%= link_to lecturas_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_lectura_path(@lectura), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show lectura</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Estado medidor:</dt>
+  <dd><%= @lectura.estado_medidor %></dd>
+
+  <dt>Numero medidor:</dt>
+  <dd><%= @lectura.numero_medidor %></dd>
+
+  <dt>Fecha:</dt>
+  <dd><%= @lectura.fecha %></dd>
+
+  <dt>Lector:</dt>
+  <dd><%= @lectura.lector %></dd>
+
+  <dt>Anterior:</dt>
+  <dd><%= @lectura.anterior %></dd>
+
+  <dt>Actual:</dt>
+  <dd><%= @lectura.actual %></dd>
+
+  <dt>Consumo:</dt>
+  <dd><%= @lectura.consumo %></dd>
+
+  <dt>Exceso:</dt>
+  <dd><%= @lectura.exceso %></dd>
+
+</dl>

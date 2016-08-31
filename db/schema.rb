@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160831215340) do
+ActiveRecord::Schema.define(version: 20160831222554) do
 
   create_table "clientes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "cod"
@@ -26,6 +26,19 @@ ActiveRecord::Schema.define(version: 20160831215340) do
     t.datetime "updated_at",     null: false
   end
 
+  create_table "lecturas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "estado_medidor"
+    t.string   "numero_medidor"
+    t.date     "fecha"
+    t.string   "lector"
+    t.integer  "anterior"
+    t.integer  "actual"
+    t.integer  "consumo"
+    t.integer  "exceso"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
   create_table "periodos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "cod"
     t.string   "mes_ano"
@@ -36,6 +49,14 @@ ActiveRecord::Schema.define(version: 20160831215340) do
     t.integer  "cantidad_dias"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+  end
+
+  create_table "servicios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "cod"
+    t.string   "concepto"
+    t.integer  "tarifa"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

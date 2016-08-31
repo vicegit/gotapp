@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :lecturas
+  resources :servicios
   resources :periodos
   resources :clientes
   devise_for :users
