@@ -38,14 +38,14 @@
     <div class="row">
       <div class="col-sm-3 col-md-2 sidebar">
         <ul class="nav nav-sidebar">
-          <li class="active"><%= link_to "Administrador", root_path %></li>
-          <li><%= link_to "Clientes", clientes_path %></li>
-          <li><%= link_to "Períodos", periodos_path %></li>
-          <li><%= link_to "Lecturas", lecturas_path %></li>
+          <li class="<%= 'active' if current_page?(root_path) %>"><%= link_to "Administrador", root_path %></li>
+          <li class="<%= 'active' if current_page?(clientes_path) %>"><%= link_to "Clientes", clientes_path %></li>
+          <li class="<%= 'active' if current_page?(periodos_path) %>"><%= link_to "Períodos", periodos_path %></li>
+          <li class="<%= 'active' if current_page?(lecturas_path) %>"><%= link_to "Lecturas", lecturas_path %></li>
         </ul>
         <ul class="nav nav-sidebar">
-          <li><%= link_to "Servicios", servicios_path %></li>
-          <li><a href="">Facturación</a></li>
+          <li class="<%= 'active' if current_page?(servicios_path) %>"><%= link_to "Servicios", servicios_path %></li>
+          <li><a href="">Facturas</a></li>
           <li><a href="">Pagos</a></li>
           <li><a href="">Cuenta corriente cliente</a></li>
           <li><a href="">Reportes</a></li>

@@ -113,3 +113,8 @@ body {
   background-size: cover;
   background-repeat:no-repeat;
 }
+
+.required{
+    font-size: 16px;
+    color: #00a0df;
+}

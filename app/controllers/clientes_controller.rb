@@ -28,7 +28,7 @@ class ClientesController < ApplicationController
 
     respond_to do |format|
       if @cliente.save
-        format.html { redirect_to @cliente, notice: 'Cliente was successfully created.' }
+        format.html { redirect_to @cliente, notice: 'El cliente fue creado.' }
         format.json { render :show, status: :created, location: @cliente }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class ClientesController < ApplicationController
   def update
     respond_to do |format|
       if @cliente.update(cliente_params)
-        format.html { redirect_to @cliente, notice: 'Cliente was successfully updated.' }
+        format.html { redirect_to @cliente, notice: 'El cliente fue actualizado.' }
         format.json { render :show, status: :ok, location: @cliente }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class ClientesController < ApplicationController
   def destroy
     @cliente.destroy
     respond_to do |format|
-      format.html { redirect_to clientes_url, notice: 'Cliente was successfully destroyed.' }
+      format.html { redirect_to clientes_url, notice: 'El cliente fue eliminado.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +69,6 @@ class ClientesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cliente_params
-      params.require(:cliente).permit(:cod, :ci, :nombre, :direccion, :telefono, :fecha_contrato, :fecha_conexion, :estado_cuenta, :observacion)
+      params.require(:cliente).permit(:ci, :nombre, :direccion, :telefono, :fecha_contrato, :fecha_conexion, :observacion, :estado_cuenta, :estado_medidor, :numero_medidor)
     end
 end

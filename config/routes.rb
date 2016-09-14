@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
+  resources :facturas
+  resources :periodos
   resources :lecturas
   resources :servicios
-  resources :periodos
   resources :clientes
   devise_for :users
   root 'admin#index'

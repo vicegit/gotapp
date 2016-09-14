@@ -69,6 +69,6 @@ class LecturasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def lectura_params
-      params.require(:lectura).permit(:estado_medidor, :numero_medidor, :fecha, :lector, :anterior, :actual, :consumo, :exceso)
+      params.require(:lectura).permit(:cliente_id, :periodo_id, :fecha, :lector, :anterior, :actual, :consumo, :exceso)
     end
 end

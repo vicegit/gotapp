@@ -10,49 +10,57 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160831222554) do
+ActiveRecord::Schema.define(version: 20160914151439) do
 
   create_table "clientes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "cod"
-    t.string   "ci"
+    t.integer  "ci"
     t.string   "nombre"
     t.string   "direccion"
     t.string   "telefono"
     t.date     "fecha_contrato"
     t.date     "fecha_conexion"
-    t.string   "estado_cuenta"
     t.string   "observacion"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.boolean  "estado_cuenta",  default: true
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.boolean  "estado_medidor"
+    t.string   "numero_medidor"
+  end
+
+  create_table "facturas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "nrofact"
+    t.integer  "cliente_id"
+    t.string   "condicion"
+    t.date     "fecha"
+    t.integer  "iva",        default: 0
+    t.integer  "erssan",     default: 0
+    t.integer  "total",      default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "lecturas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "estado_medidor"
-    t.string   "numero_medidor"
+    t.integer  "cliente_id"
+    t.integer  "periodo_id"
     t.date     "fecha"
     t.string   "lector"
     t.integer  "anterior"
     t.integer  "actual"
     t.integer  "consumo"
     t.integer  "exceso"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "periodos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "cod"
-    t.string   "mes_ano"
+    t.date     "periodo"
     t.date     "fecha_vencimiento"
-    t.string   "estado_periodo"
-    t.date     "fecha_inicio"
-    t.date     "fecha_fin"
-    t.integer  "cantidad_dias"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.boolean  "estado_periodo",    default: true
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
   end
 
   create_table "servicios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "cod"
     t.string   "concepto"
     t.integer  "tarifa"
     t.datetime "created_at", null: false

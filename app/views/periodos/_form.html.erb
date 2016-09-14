@@ -13,24 +13,18 @@
   <% end %>
 
   <div class="form-group">
-    
-      <%= f.label :cod, class: "col-sm-2 control-label" %>
+      <%= f.label :periodo, class: "col-sm-2 control-label" do %>
+        Período
+        <span class="required">*</span>
+      <% end %>
       <div class="col-sm-10">
-        <%= f.number_field :cod, class: "form-control" %>
+        <%= f.date_select :periodo, class: "form-control" %>
       </div>
     
   </div>
   <div class="form-group">
     
-      <%= f.label :mes_ano, class: "col-sm-2 control-label" %>
-      <div class="col-sm-10">
-        <%= f.text_field :mes_ano, class: "form-control" %>
-      </div>
-    
-  </div>
-  <div class="form-group">
-    
-      <%= f.label :fecha_vencimiento, class: "col-sm-2 control-label" %>
+      <%= f.label :fecha_vencimiento, "Fecha de vencimiento", class: "col-sm-2 control-label" %>
       <div class="col-sm-10">
         <%= f.date_select :fecha_vencimiento, class: "form-control" %>
       </div>
@@ -38,39 +32,20 @@
   </div>
   <div class="form-group">
     
-      <%= f.label :estado_periodo, class: "col-sm-2 control-label" %>
-      <div class="col-sm-10">
-        <%= f.text_field :estado_periodo, class: "form-control" %>
-      </div>
-    
-  </div>
-  <div class="form-group">
-    
-      <%= f.label :fecha_inicio, class: "col-sm-2 control-label" %>
-      <div class="col-sm-10">
-        <%= f.date_select :fecha_inicio, class: "form-control" %>
-      </div>
-    
-  </div>
-  <div class="form-group">
-    
-      <%= f.label :fecha_fin, class: "col-sm-2 control-label" %>
-      <div class="col-sm-10">
-        <%= f.date_select :fecha_fin, class: "form-control" %>
-      </div>
-    
-  </div>
-  <div class="form-group">
-    
-      <%= f.label :cantidad_dias, class: "col-sm-2 control-label" %>
-      <div class="col-sm-10">
-        <%= f.number_field :cantidad_dias, class: "form-control" %>
+      <div class="col-sm-offset-2 col-sm-10"> 
+        <div class="checkbox">
+          <label>
+            <%= f.check_box :estado_periodo %>
+            Estado de período      
+          </label>
+        </div>
       </div>
     
   </div>
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <%= f.submit class: "btn btn-primary" %>
+      <%= f.submit "Guardar", class: "btn btn-primary" %>
+      <%= link_to "Cancelar", periodos_path, class: "btn btn-default" %>
     </div>
   </div>
 <% end %>

@@ -7,11 +7,11 @@
 </div>
 
 <div class="table-responsive">
-  <table id="tablalectura" class="table table-striped table-bordered table-hover">
+  <table class="table table-striped table-bordered table-hover">
     <thead>
       <tr>
-            <th>Estado medidor</th>
-            <th>Numero medidor</th>
+            <th>Cliente</th>
+            <th>Periodo</th>
             <th>Fecha</th>
             <th>Lector</th>
             <th>Anterior</th>
@@ -26,8 +26,8 @@
 
     <tbody>
       <%= content_tag_for(:tr, @lecturas) do |lectura| %>
-            <td><%= lectura.estado_medidor %></td>
-            <td><%= lectura.numero_medidor %></td>
+            <td><%= lectura.cliente_id %></td>
+            <td><%= lectura.periodo_id %></td>
             <td><%= lectura.fecha %></td>
             <td><%= lectura.lector %></td>
             <td><%= lectura.anterior %></td>
@@ -41,8 +41,3 @@
     </tbody>
   </table>
 </div>
-
-<script>
-  $('#tablalectura').DataTable({
-  });
-</script>

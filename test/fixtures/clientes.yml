@@ -1,23 +1,21 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  cod: 1
-  ci: MyString
+  ci: 1
   nombre: MyString
   direccion: MyString
   telefono: MyString
-  fecha_contrato: 2016-08-31
-  fecha_conexion: 2016-08-31
-  estado_cuenta: MyString
+  fecha_contrato: 2016-09-07
+  fecha_conexion: 2016-09-07
   observacion: MyString
+  estado_cuenta: false
 
 two:
-  cod: 1
-  ci: MyString
+  ci: 1
   nombre: MyString
   direccion: MyString
   telefono: MyString
-  fecha_contrato: 2016-08-31
-  fecha_conexion: 2016-08-31
-  estado_cuenta: MyString
+  fecha_contrato: 2016-09-07
+  fecha_conexion: 2016-09-07
   observacion: MyString
+  estado_cuenta: false

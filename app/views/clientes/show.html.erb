@@ -1,41 +1,44 @@
 <div class="page-header">
   <%= link_to clientes_path, class: 'btn btn-default' do %>
     <span class="glyphicon glyphicon-list-alt"></span>
-    Back
+    Atrás
   <% end %>
   <%= link_to edit_cliente_path(@cliente), class: 'btn btn-primary' do %>
     <span class="glyphicon glyphicon-pencil"></span>
-    Edit
+    Editar
   <% end %>
-  <h1>Show cliente</h1>
+  <h1>Cliente</h1>
 </div>
 
 <dl class="dl-horizontal">
-  <dt>Cod:</dt>
-  <dd><%= @cliente.cod %></dd>
-
-  <dt>Ci:</dt>
+  <dt>C. I. Nº:</dt>
   <dd><%= @cliente.ci %></dd>
 
   <dt>Nombre:</dt>
   <dd><%= @cliente.nombre %></dd>
 
-  <dt>Direccion:</dt>
+  <dt>Dirección:</dt>
   <dd><%= @cliente.direccion %></dd>
 
-  <dt>Telefono:</dt>
+  <dt>Teléfono:</dt>
   <dd><%= @cliente.telefono %></dd>
 
-  <dt>Fecha contrato:</dt>
+  <dt>Fecha de contrato:</dt>
   <dd><%= @cliente.fecha_contrato %></dd>
 
-  <dt>Fecha conexion:</dt>
+  <dt>Fecha de conexión:</dt>
   <dd><%= @cliente.fecha_conexion %></dd>
 
-  <dt>Estado cuenta:</dt>
+  <dt>Observación:</dt>
+  <dd><%= @cliente.observacion %></dd>
+
+  <dt>Estado de cuenta:</dt>
   <dd><%= @cliente.estado_cuenta %></dd>
 
-  <dt>Observacion:</dt>
-  <dd><%= @cliente.observacion %></dd>
+  <dt>Estado de medidor:</dt>
+  <dd><%= @cliente.estado_medidor %></dd>
+
+  <dt>Nº de medidor:</dt>
+  <dd><%= @cliente.numero_medidor %></dd>
 
 </dl>

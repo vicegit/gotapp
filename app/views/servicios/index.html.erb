@@ -1,16 +1,15 @@
 <div class="page-header">
   <%= link_to new_servicio_path, class: 'btn btn-primary' do %>
-    <span class="glyphicon glyphicon-plus"></span>
-    New Servicio
+  <span class="glyphicon glyphicon-plus"></span>
+  Nuevo Servicio
   <% end %>
-  <h1>Listing servicios</h1>
+  <h1>Lista de servicios</h1>
 </div>
 
 <div class="table-responsive">
   <table id="tablaservicio" class="table table-striped table-bordered table-hover">
     <thead>
       <tr>
-        <th>Cod</th>
         <th>Concepto</th>
         <th>Tarifa</th>
         <th></th>
@@ -21,18 +20,41 @@
 
     <tbody>
       <%= content_tag_for(:tr, @servicios) do |servicio| %>
-            <td><%= servicio.cod %></td>
-            <td><%= servicio.concepto %></td>
-            <td><%= servicio.tarifa %></td>
-            <td><%= link_to 'Show', servicio %></td>
-        <td><%= link_to 'Edit', edit_servicio_path(servicio) %></td>
-        <td><%= link_to 'Destroy', servicio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= servicio.concepto %></td>
+      <td><%= servicio.tarifa %></td>
+      <td><%= link_to 'Ver', servicio, class: "btn btn-default" %></td>
+      <td><%= link_to 'Editar', edit_servicio_path(servicio), class: "btn btn-primary" %></td>
+      <td><%= link_to 'Eliminar', servicio, method: :delete, data: { confirm: 'Estás seguro?' }, class: "btn btn-danger" %></td>
       <% end %>
     </tbody>
   </table>
 </div>
 
 <script>
-  $('#tablaservicio').DataTable({
-  });
+$('#tablaservicio').DataTable({
+  "language": {
+    "sProcessing":     "Procesando...",
+    "sLengthMenu":     "Mostrar _MENU_ registros",
+    "sZeroRecords":    "No se encontraron resultados",
+    "sEmptyTable":     "Ningún dato disponible en esta tabla",
+    "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+    "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+    "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+    "sInfoPostFix":    "",
+    "sSearch":         "Buscar:",
+    "sUrl":            "",
+    "sInfoThousands":  ",",
+    "sLoadingRecords": "Cargando...",
+    "oPaginate": {
+      "sFirst":    "Primero",
+      "sLast":     "Último",
+      "sNext":     "Siguiente",
+      "sPrevious": "Anterior"
+    },
+    "oAria": {
+      "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+      "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+    }
+  }
+});
 </script>

@@ -1,19 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  cod: 1
-  mes_ano: MyString
-  fecha_vencimiento: 2016-08-31
-  estado_periodo: MyString
-  fecha_inicio: 2016-08-31
-  fecha_fin: 2016-08-31
-  cantidad_dias: 1
+  periodo: 2016-09-14
+  fecha_vencimiento: 2016-09-14
+  estado_periodo: false
 
 two:
-  cod: 1
-  mes_ano: MyString
-  fecha_vencimiento: 2016-08-31
-  estado_periodo: MyString
-  fecha_inicio: 2016-08-31
-  fecha_fin: 2016-08-31
-  cantidad_dias: 1
+  periodo: 2016-09-14
+  fecha_vencimiento: 2016-09-14
+  estado_periodo: false

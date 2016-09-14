@@ -17,7 +17,7 @@ class PeriodosControllerTest < ActionDispatch::IntegrationTest
 
   test "should create periodo" do
     assert_difference('Periodo.count') do
-      post periodos_url, params: { periodo: { cantidad_dias: @periodo.cantidad_dias, cod: @periodo.cod, estado_periodo: @periodo.estado_periodo, fecha_fin: @periodo.fecha_fin, fecha_inicio: @periodo.fecha_inicio, fecha_vencimiento: @periodo.fecha_vencimiento, mes_ano: @periodo.mes_ano } }
+      post periodos_url, params: { periodo: { estado_periodo: @periodo.estado_periodo, fecha_vencimiento: @periodo.fecha_vencimiento, periodo: @periodo.periodo } }
     end
 
     assert_redirected_to periodo_url(Periodo.last)
@@ -34,7 +34,7 @@ class PeriodosControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update periodo" do
-    patch periodo_url(@periodo), params: { periodo: { cantidad_dias: @periodo.cantidad_dias, cod: @periodo.cod, estado_periodo: @periodo.estado_periodo, fecha_fin: @periodo.fecha_fin, fecha_inicio: @periodo.fecha_inicio, fecha_vencimiento: @periodo.fecha_vencimiento, mes_ano: @periodo.mes_ano } }
+    patch periodo_url(@periodo), params: { periodo: { estado_periodo: @periodo.estado_periodo, fecha_vencimiento: @periodo.fecha_vencimiento, periodo: @periodo.periodo } }
     assert_redirected_to periodo_url(@periodo)
   end
 

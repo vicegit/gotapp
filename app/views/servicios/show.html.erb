@@ -1,19 +1,16 @@
 <div class="page-header">
   <%= link_to servicios_path, class: 'btn btn-default' do %>
     <span class="glyphicon glyphicon-list-alt"></span>
-    Back
+    Atrás
   <% end %>
   <%= link_to edit_servicio_path(@servicio), class: 'btn btn-primary' do %>
     <span class="glyphicon glyphicon-pencil"></span>
-    Edit
+    Editar
   <% end %>
-  <h1>Show servicio</h1>
+  <h1>Servicio</h1>
 </div>
 
 <dl class="dl-horizontal">
-  <dt>Cod:</dt>
-  <dd><%= @servicio.cod %></dd>
-
   <dt>Concepto:</dt>
   <dd><%= @servicio.concepto %></dd>
 

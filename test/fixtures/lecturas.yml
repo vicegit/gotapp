@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  estado_medidor: MyString
-  numero_medidor: MyString
-  fecha: 2016-08-31
+  cliente_id: 1
+  periodo_id: 1
+  fecha: 2016-09-14
   lector: MyString
   anterior: 1
   actual: 1
@@ -11,9 +11,9 @@ one:
   exceso: 1
 
 two:
-  estado_medidor: MyString
-  numero_medidor: MyString
-  fecha: 2016-08-31
+  cliente_id: 1
+  periodo_id: 1
+  fecha: 2016-09-14
   lector: MyString
   anterior: 1
   actual: 1

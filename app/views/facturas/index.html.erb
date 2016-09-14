@@ -1,0 +1,41 @@
+<div class="page-header">
+  <%= link_to new_factura_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Factura
+  <% end %>
+  <h1>Listing facturas</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Nrofact</th>
+            <th>Cliente</th>
+            <th>Condicion</th>
+            <th>Fecha</th>
+            <th>Iva</th>
+            <th>Erssan</th>
+            <th>Total</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @facturas) do |factura| %>
+            <td><%= factura.nrofact %></td>
+            <td><%= factura.cliente_id %></td>
+            <td><%= factura.condicion %></td>
+            <td><%= factura.fecha %></td>
+            <td><%= factura.iva %></td>
+            <td><%= factura.erssan %></td>
+            <td><%= factura.total %></td>
+            <td><%= link_to 'Show', factura %></td>
+        <td><%= link_to 'Edit', edit_factura_path(factura) %></td>
+        <td><%= link_to 'Destroy', factura, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>
