@@ -1,23 +1,23 @@
 <div class="page-header">
   <%= link_to facturas_path, class: 'btn btn-default' do %>
     <span class="glyphicon glyphicon-list-alt"></span>
-    Back
+    Atrás
   <% end %>
   <%= link_to edit_factura_path(@factura), class: 'btn btn-primary' do %>
     <span class="glyphicon glyphicon-pencil"></span>
-    Edit
+    Editar
   <% end %>
-  <h1>Show factura</h1>
+  <h1>Factura</h1>
 </div>
 
 <dl class="dl-horizontal">
-  <dt>Nrofact:</dt>
+  <dt>Nº de factura:</dt>
   <dd><%= @factura.nrofact %></dd>
 
   <dt>Cliente:</dt>
   <dd><%= @factura.cliente_id %></dd>
 
-  <dt>Condicion:</dt>
+  <dt>Condición:</dt>
   <dd><%= @factura.condicion %></dd>
 
   <dt>Fecha:</dt>

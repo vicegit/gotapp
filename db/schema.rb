@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160914151439) do
+ActiveRecord::Schema.define(version: 20160928222313) do
 
   create_table "clientes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "ci"
@@ -37,6 +37,14 @@ ActiveRecord::Schema.define(version: 20160914151439) do
     t.integer  "total",      default: 0
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+  end
+
+  create_table "facturas_servicios", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "factura_id"
+    t.integer "servicio_id"
+    t.integer "subtotal"
+    t.index ["factura_id"], name: "index_facturas_servicios_on_factura_id", using: :btree
+    t.index ["servicio_id"], name: "index_facturas_servicios_on_servicio_id", using: :btree
   end
 
   create_table "lecturas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

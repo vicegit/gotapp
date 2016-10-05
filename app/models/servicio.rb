@@ -1,4 +1,7 @@
 class Servicio < ApplicationRecord
+
+	has_and_belongs_to_many :facturas
+
 	#Validaciones de concepto
 	validates :concepto, :presence => {:message => "Debe ingresar un concepto"}, 
 			:uniqueness => {:message => "El concepto ya está registrado"}, 
@@ -7,4 +10,5 @@ class Servicio < ApplicationRecord
 	validates :tarifa, :presence => {:message => "Debe ingresar una tarifa"},  
 			length: {minimum: 4, maximum: 7, :message => "La tarifa debe tener entre 4 y 7 caracteres"},
 			:numericality => {:only_integer => true, :message => "Debe ingresar un número entero"}
+
 end

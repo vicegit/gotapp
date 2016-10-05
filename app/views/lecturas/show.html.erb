@@ -1,20 +1,20 @@
 <div class="page-header">
   <%= link_to lecturas_path, class: 'btn btn-default' do %>
     <span class="glyphicon glyphicon-list-alt"></span>
-    Back
+    Atrás
   <% end %>
   <%= link_to edit_lectura_path(@lectura), class: 'btn btn-primary' do %>
     <span class="glyphicon glyphicon-pencil"></span>
-    Edit
+    Editar
   <% end %>
-  <h1>Show lectura</h1>
+  <h1>Lectura</h1>
 </div>
 
 <dl class="dl-horizontal">
   <dt>Cliente:</dt>
   <dd><%= @lectura.cliente_id %></dd>
 
-  <dt>Periodo:</dt>
+  <dt>Período:</dt>
   <dd><%= @lectura.periodo_id %></dd>
 
   <dt>Fecha:</dt>

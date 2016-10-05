@@ -1,23 +1,23 @@
 <div class="page-header">
   <%= link_to new_factura_path, class: 'btn btn-primary' do %>
-    <span class="glyphicon glyphicon-plus"></span>
-    New Factura
+  <span class="glyphicon glyphicon-plus"></span>
+  Nueva factura
   <% end %>
-  <h1>Listing facturas</h1>
+  <h1>Lista de facturas</h1>
 </div>
 
 <div class="table-responsive">
-  <table class="table table-striped table-bordered table-hover">
+  <table id="tablafactura" class="table table-striped table-bordered table-hover">
     <thead>
       <tr>
-            <th>Nrofact</th>
-            <th>Cliente</th>
-            <th>Condicion</th>
-            <th>Fecha</th>
-            <th>Iva</th>
-            <th>Erssan</th>
-            <th>Total</th>
-            <th></th>
+        <th>Nº de factura</th>
+        <th>Cliente</th>
+        <th>Condición</th>
+        <th>Fecha</th>
+        <th>Iva</th>
+        <th>Erssan</th>
+        <th>Total</th>
+        <th></th>
         <th></th>
         <th></th>
       </tr>
@@ -25,17 +25,46 @@
 
     <tbody>
       <%= content_tag_for(:tr, @facturas) do |factura| %>
-            <td><%= factura.nrofact %></td>
-            <td><%= factura.cliente_id %></td>
-            <td><%= factura.condicion %></td>
-            <td><%= factura.fecha %></td>
-            <td><%= factura.iva %></td>
-            <td><%= factura.erssan %></td>
-            <td><%= factura.total %></td>
-            <td><%= link_to 'Show', factura %></td>
-        <td><%= link_to 'Edit', edit_factura_path(factura) %></td>
-        <td><%= link_to 'Destroy', factura, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= factura.nrofact %></td>
+      <td><%= factura.cliente_id %></td>
+      <td><%= factura.condicion %></td>
+      <td><%= factura.fecha %></td>
+      <td><%= factura.iva %></td>
+      <td><%= factura.erssan %></td>
+      <td><%= factura.total %></td>
+      <td><%= link_to 'Ver', factura, class: "btn btn-default" %></td>
+      <td><%= link_to 'Editar', edit_factura_path(factura), class: "btn btn-primary" %></td>
+      <td><%= link_to 'Eliminar', factura, method: :delete, data: { confirm: 'Estas seguro?' }, class: "btn btn-danger" %></td>
       <% end %>
     </tbody>
   </table>
 </div>
+
+<script>
+$('#tablafactura').DataTable({
+  "language": {
+    "sProcessing":     "Procesando...",
+    "sLengthMenu":     "Mostrar _MENU_ registros",
+    "sZeroRecords":    "No se encontraron resultados",
+    "sEmptyTable":     "Ningún dato disponible en esta tabla",
+    "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+    "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+    "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+    "sInfoPostFix":    "",
+    "sSearch":         "Buscar:",
+    "sUrl":            "",
+    "sInfoThousands":  ",",
+    "sLoadingRecords": "Cargando...",
+    "oPaginate": {
+      "sFirst":    "Primero",
+      "sLast":     "Último",
+      "sNext":     "Siguiente",
+      "sPrevious": "Anterior"
+    },
+    "oAria": {
+      "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+      "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+    }
+  }
+});
+</script>

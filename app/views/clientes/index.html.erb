@@ -18,53 +18,53 @@
         <th></th>
         <th></th>
         <th></th>
-    </tr>
-</thead>
+      </tr>
+    </thead>
 
-<tbody>
-  <%= content_tag_for(:tr, @clientes) do |cliente| %>
-  <td><%= cliente.ci %></td>
-  <td><%= cliente.nombre %></td>
-  <td><%= cliente.direccion %></td>
-  <td><%= cliente.telefono %></td>
-  <% if cliente.estado_cuenta == true %>
-    <td>ACTIVO</td>
-  <% else %>
-    <td>INACTIVO</td>
-  <% end %>
-  <td><%= link_to 'Ver', cliente, class: "btn btn-default" %></td>
-  <td><%= link_to 'Editar', edit_cliente_path(cliente), class: "btn btn-primary" %></td>
-  <td><%= link_to 'Eliminar', cliente, method: :delete, data: { confirm: '¿Estás seguro?' }, class: "btn btn-danger" %></td>
-  <% end %>
-</tbody>
-</table>
+    <tbody>
+      <%= content_tag_for(:tr, @clientes) do |cliente| %>
+      <td><%= cliente.ci %></td>
+      <td><%= cliente.nombre %></td>
+      <td><%= cliente.direccion %></td>
+      <td><%= cliente.telefono %></td>
+      <% if cliente.estado_cuenta == true %>
+      <td>ACTIVO</td>
+      <% else %>
+      <td>INACTIVO</td>
+      <% end %>
+      <td><%= link_to 'Ver', cliente, class: "btn btn-default" %></td>
+      <td><%= link_to 'Editar', edit_cliente_path(cliente), class: "btn btn-primary" %></td>
+      <td><%= link_to 'Eliminar', cliente, method: :delete, data: { confirm: '¿Estás seguro?' }, class: "btn btn-danger" %></td>
+      <% end %>
+    </tbody>
+  </table>
 </div>
 
 <script>
 $('#tablacliente').DataTable({
-    "language": {
-        "sProcessing":     "Procesando...",
-        "sLengthMenu":     "Mostrar _MENU_ registros",
-        "sZeroRecords":    "No se encontraron resultados",
-        "sEmptyTable":     "Ningún dato disponible en esta tabla",
-        "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-        "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
-        "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
-        "sInfoPostFix":    "",
-        "sSearch":         "Buscar:",
-        "sUrl":            "",
-        "sInfoThousands":  ",",
-        "sLoadingRecords": "Cargando...",
-        "oPaginate": {
-            "sFirst":    "Primero",
-            "sLast":     "Último",
-            "sNext":     "Siguiente",
-            "sPrevious": "Anterior"
-        },
-        "oAria": {
-            "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
-            "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-        }
+  "language": {
+    "sProcessing":     "Procesando...",
+    "sLengthMenu":     "Mostrar _MENU_ registros",
+    "sZeroRecords":    "No se encontraron resultados",
+    "sEmptyTable":     "Ningún dato disponible en esta tabla",
+    "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+    "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+    "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+    "sInfoPostFix":    "",
+    "sSearch":         "Buscar:",
+    "sUrl":            "",
+    "sInfoThousands":  ",",
+    "sLoadingRecords": "Cargando...",
+    "oPaginate": {
+      "sFirst":    "Primero",
+      "sLast":     "Último",
+      "sNext":     "Siguiente",
+      "sPrevious": "Anterior"
+    },
+    "oAria": {
+      "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+      "sSortDescending": ": Activar para ordenar la columna de manera descendente"
     }
+  }
 });
 </script>
