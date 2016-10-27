@@ -7,6 +7,10 @@ class FacturasController < ApplicationController
     @facturas = Factura.all
   end
 
+  def facturar
+    Crearfactura.crear
+  end
+
   # GET /facturas/1
   # GET /facturas/1.json
   def show
