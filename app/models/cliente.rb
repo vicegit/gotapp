@@ -2,6 +2,7 @@ class Cliente < ApplicationRecord
 
 	has_many :lecturas
 	has_many :facturas
+	has_many :ctacteclis
 
 	#Validaciones de ci
 	validates :ci, :presence => {:message => "Debe ingresar una C. I. Nº"}, 

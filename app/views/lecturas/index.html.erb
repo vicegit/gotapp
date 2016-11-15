@@ -26,8 +26,8 @@
 
     <tbody>
       <%= content_tag_for(:tr, @lecturas) do |lectura| %>
-      <td><%= lectura.cliente_id %></td>
-      <td><%= lectura.periodo_id %></td>
+      <td><%= lectura.cliente.nombre %></td>
+      <td><%= lectura.periodo.periodo %></td>
       <td><%= lectura.fecha %></td>
       <td><%= lectura.lector %></td>
       <td><%= lectura.anterior %></td>

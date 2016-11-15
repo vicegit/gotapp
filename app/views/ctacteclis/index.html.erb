@@ -1,54 +1,37 @@
 <div class="page-header">
-  
-  <%= link_to facturas_facturar_path, method: :post, class: 'btn btn-primary' do %>
+  <%= link_to new_ctactecli_path, class: 'btn btn-primary' do %>
     <span class="glyphicon glyphicon-plus"></span>
-    Crear facturas
+    Nueva Cuenta Corriente Cliente
   <% end %>
-
-  <%= link_to facturas_reportefactura_path(:format=>:pdf), method: :post,class: 'btn btn-primary' do %>
-    <span class="glyphicon glyphicon-print"></span>
-    Imprimir facturas
-  <% end %>
-
-  <h1>Lista de facturas</h1>
+  <h1>Lista de Cuenta Corriente Cliente</h1>
 </div>
 
 <div class="table-responsive">
-  <table id="tablafactura" class="table table-striped table-bordered table-hover">
+  <table id="tablactactecli" class="table table-striped table-bordered table-hover">
     <thead>
       <tr>
-        <th>Nº de factura</th>
-        <th>Cliente</th>
-        <th>Condición</th>
-        <th>Fecha</th>
-        <th>Iva</th>
-        <th>Erssan</th>
-        <th>Total</th>
-        <th></th>
+            <th>Cliente</th>
+            <th>Saldo</th>
+            <th></th>
         <th></th>
         <th></th>
       </tr>
     </thead>
 
     <tbody>
-      <%= content_tag_for(:tr, @facturas) do |factura| %>
-      <td><%= factura.nrofact %></td>
-      <td><%= factura.cliente.nombre %></td>
-      <td><%= factura.condicion %></td>
-      <td><%= factura.fecha %></td>
-      <td><%= factura.iva %></td>
-      <td><%= factura.erssan %></td>
-      <td><%= factura.total %></td>
-      <td><%= link_to 'Ver', factura, class: "btn btn-default" %></td>
-      <td><%= link_to 'Editar', edit_factura_path(factura), class: "btn btn-primary" %></td>
-      <td><%= link_to 'Eliminar', factura, method: :delete, data: { confirm: 'Estas seguro?' }, class: "btn btn-danger" %></td>
+      <%= content_tag_for(:tr, @ctacteclis) do |ctactecli| %>
+            <td><%= ctactecli.cliente.nombre %></td>
+            <td><%= ctactecli.saldo %></td>
+            <td><%= link_to 'Ver', ctactecli, class: "btn btn-default" %></td>
+        <td><%= link_to 'Editar', edit_ctactecli_path(ctactecli), class: "btn btn-primary" %></td>
+        <td><%= link_to 'Eliminar', ctactecli, method: :delete, data: { confirm: 'Estás seguro?' }, class: "btn btn-danger" %></td>
       <% end %>
     </tbody>
   </table>
 </div>
 
 <script>
-$('#tablafactura').DataTable({
+$('#tablactactecli').DataTable({
   "language": {
     "sProcessing":     "Procesando...",
     "sLengthMenu":     "Mostrar _MENU_ registros",

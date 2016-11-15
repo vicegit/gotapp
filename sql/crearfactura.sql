@@ -1,7 +1,7 @@
--- call crearfactura(45);
+-- call crearfactura();
 drop procedure if exists crearfactura;
 DELIMITER $$
-create PROCEDURE crearfactura(in numero int)
+create PROCEDURE crearfactura( )
 begin
 	-- Declaración de variables.
     DECLARE cliente int default 0;
@@ -11,7 +11,9 @@ begin
     DECLARE cantidadexceso int default 0;
     DECLARE totaltarifaexceso int default 0;
     DECLARE periodoactual int default 0;
+    DECLARE totalerssan int default 0;
     DECLARE totalfacturacion int default 0;
+    DECLARE cuenta int default 0;
     DECLARE hecho bool default false;
     DECLARE cursor_cliente CURSOR FOR SELECT id FROM clientes WHERE estado_cuenta = 1;
     
@@ -24,6 +26,7 @@ begin
     
     select max(id) from periodos into periodoactual;
 	
+    -- Cursor
     OPEN cursor_cliente;
 		loop1: LOOP
 			FETCH cursor_cliente INTO cliente;
@@ -32,24 +35,47 @@ begin
 				LEAVE loop1;
 			END IF;
             
-            insert into facturas(nrofact, cliente_id, condicion, fecha) values(numero, cliente, "CRÉDITO", current_date());
+            -- Inserción en la cabecera de factura
+            insert into facturas(cliente_id, condicion, fecha) values(cliente, "CRÉDITO", current_date());
             
             select max(id) from facturas into fact;
             
-            insert into facturas_servicios(factura_id, servicio_id, subtotal) values(fact, 1, tarifaminima);
+            -- Inserción en el detalle de factura
+            insert into detallefacturas(factura_id, servicio_id, subtotal) values(fact, 1, tarifaminima);
             
             select exceso from lecturas where lecturas.periodo_id = periodoactual and lecturas.cliente_id = cliente into cantidadexceso;
 			
             set totaltarifaexceso = cantidadexceso * tarifaexceso;
             
-            insert into facturas_servicios(factura_id, servicio_id, subtotal) values(fact, 2, totaltarifaexceso);
+            insert into detallefacturas(factura_id, servicio_id, subtotal) values(fact, 2, totaltarifaexceso);
             
-            set totalfacturacion = tarifaminima + totaltarifaexceso;
+            set totalerssan = ((tarifaminima + totaltarifaexceso) * 0.02);
             
-            update facturas set iva = (totalfacturacion/11), erssan = (totalfacturacion * 0.02), total = totalfacturacion where id=fact;
+            set totalfacturacion = tarifaminima + totaltarifaexceso + totalerssan;
             
-            set numero = numero+1;
+            
+            -- Actualización de cabecera de factura
+            update facturas set iva = ((tarifaminima + totaltarifaexceso)/11), erssan = totalerssan, total = totalfacturacion where id=fact;
 			
+            -- Inserción o actualización en la cuenta corriente cliente por el debe
+			if not exists(select * from ctacteclis where cliente_id=cliente) then
+				insert into ctacteclis(cliente_id) values(cliente);
+                
+                select max(id) from ctacteclis into cuenta;
+                
+                insert into detallectacteclis(ctactecli_id, fechadetalle, tipodetalle, debe) values(cuenta, current_date(), 'Débito por factura', totalfacturacion);
+				
+                update ctacteclis set saldo = saldo + totalfacturacion where id=cuenta;
+			else
+				select id from ctacteclis where cliente_id=cliente into cuenta;
+                
+                insert into detallectacteclis(ctactecli_id, fechadetalle, tipodetalle, debe) values(cuenta, current_date(), 'Débito por factura', totalfacturacion);
+				
+                update ctacteclis set saldo = saldo + totalfacturacion where id=cuenta;
+                
+            end if;
+
+            
 		END LOOP loop1;
     CLOSE cursor_cliente;
 

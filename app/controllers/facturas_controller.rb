@@ -9,11 +9,18 @@ class FacturasController < ApplicationController
 
   def facturar
     Crearfactura.crear
+    respond_to do |format|
+      format.html { redirect_to facturas_url, notice: 'La facturas del periodo actual han sido creadas.' }
+    end
+  end
+
+  def reportefactura
   end
 
   # GET /facturas/1
   # GET /facturas/1.json
   def show
+    @detalles = @factura.detallefacturas
   end
 
   # GET /facturas/new
@@ -75,4 +82,4 @@ class FacturasController < ApplicationController
     def factura_params
       params.require(:factura).permit(:nrofact, :cliente_id, :condicion, :fecha, :iva, :erssan, :total)
     end
-end
+  end

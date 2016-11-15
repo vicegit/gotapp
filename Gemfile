@@ -57,3 +57,7 @@ gem 'bootstrap-generators'
 gem 'record_tag_helper'
 
 gem 'jquery-datatables-rails'
+
+gem 'prawn'
+
+gem 'prawn-rails'

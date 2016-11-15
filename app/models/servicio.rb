@@ -1,6 +1,7 @@
 class Servicio < ApplicationRecord
 
-	has_and_belongs_to_many :facturas
+	has_many :detallefacturas
+  	has_many :facturas, through: :detallefacturas
 
 	#Validaciones de concepto
 	validates :concepto, :presence => {:message => "Debe ingresar un concepto"}, 
