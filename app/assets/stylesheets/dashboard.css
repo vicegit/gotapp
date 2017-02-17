@@ -108,13 +108,17 @@ body {
     color: #00a0df !important;
 }
 
-.login-img-body{
+.login-img-body {
   background-image: url(/assets/bg.jpg);
   background-size: cover;
   background-repeat:no-repeat;
 }
 
-.required{
+.required {
     font-size: 16px;
     color: #00a0df;
+}
+
+.datatable-highlight {
+    background-color: #99ccff;
 }

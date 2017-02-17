@@ -21,8 +21,8 @@
 
     <tbody>
       <%= content_tag_for(:tr, @periodos) do |periodo| %>
-      <td><%= periodo.periodo %></td>
-      <td><%= periodo.fecha_vencimiento %></td>
+      <td><%= periodo.periodo.strftime("%m-%Y") %></td>
+      <td><%= periodo.fecha_vencimiento.strftime("%d-%m-%Y") %></td>
       <% if periodo.estado_periodo == true %>
         <td>ACTIVO</td>
       <% else %>
@@ -38,6 +38,14 @@
 
 <script>
 $('#tablaperiodo').DataTable({
+
+  "order": [[ 0, "desc" ]],
+  
+  "fnRowCallback": function( nRow, aData, iDisplayIndex ) {
+    if ( aData[2] == "ACTIVO" ) {
+      $('td', nRow).addClass('datatable-highlight'); }
+  },
+
   "language": {
     "sProcessing":     "Procesando...",
     "sLengthMenu":     "Mostrar _MENU_ registros",

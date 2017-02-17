@@ -48,6 +48,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
 
+gem 'toastr-rails'
+
 gem 'mysql2'
 
 gem 'devise-bootstrap-views'
@@ -61,3 +63,5 @@ gem 'jquery-datatables-rails'
 gem 'prawn'
 
 gem 'prawn-rails'
+
+gem 'cancancan'

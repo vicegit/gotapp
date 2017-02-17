@@ -1,4 +1,5 @@
 class LecturasController < ApplicationController
+  load_and_authorize_resource
   before_action :set_lectura, only: [:show, :edit, :update, :destroy]
 
   # GET /lecturas
@@ -31,6 +32,7 @@ class LecturasController < ApplicationController
 
     respond_to do |format|
       if @lectura.save
+        Generarlectura.generar
         format.html { redirect_to @lectura, notice: 'La lectura fue creada.' }
         format.json { render :show, status: :created, location: @lectura }
       else

@@ -1,4 +1,5 @@
 class PeriodosController < ApplicationController
+  load_and_authorize_resource
   before_action :set_periodo, only: [:show, :edit, :update, :destroy]
 
   # GET /periodos

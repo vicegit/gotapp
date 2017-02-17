@@ -1,4 +1,5 @@
 class FacturasController < ApplicationController
+  load_and_authorize_resource
   before_action :set_factura, only: [:show, :edit, :update, :destroy]
 
   # GET /facturas
@@ -7,14 +8,15 @@ class FacturasController < ApplicationController
     @facturas = Factura.all
   end
 
+  def reportefactura
+    @facturas = Factura.all
+  end
+
   def facturar
     Crearfactura.crear
     respond_to do |format|
       format.html { redirect_to facturas_url, notice: 'La facturas del periodo actual han sido creadas.' }
     end
-  end
-
-  def reportefactura
   end
 
   # GET /facturas/1

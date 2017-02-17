@@ -1,6 +1,7 @@
 class Periodo < ApplicationRecord
 
 	has_many :lecturas
+	has_many :facturas
 
 	#Validaciones de periodo
 	validates :periodo, :presence => {:message => "Debe ingresar un periodo"}, 

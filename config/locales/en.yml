@@ -21,6 +21,15 @@
 
 en:
   hello: "Hello world"
+  
+  unauthorized:
+    default: "Default error message text."
+    manage:
+      all: "No está autorizado para %{action} %{subject}."
+      user: "No se permite administrar otras cuentas de usuario."
+    update:
+      project: "No le esta permitido actualizar esta página."
+
   date:
     formats:
 

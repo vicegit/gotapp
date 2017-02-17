@@ -41,7 +41,16 @@
 </div>
 
 <script>
+
 $('#tablacliente').DataTable({
+
+  "order": [[ 1, "asc" ]],
+
+  "fnRowCallback": function( nRow, aData, iDisplayIndex ) {
+
+    $('td:eq(1)', nRow).addClass('datatable-highlight');
+  },
+
   "language": {
     "sProcessing":     "Procesando...",
     "sLengthMenu":     "Mostrar _MENU_ registros",

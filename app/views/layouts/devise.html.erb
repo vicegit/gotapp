@@ -7,26 +7,25 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="login-img-body">
+
+  <% unless flash.empty? %>
+    <script type="text/javascript">
+      <% flash.each do |f| %>
+        <% type = f[0].to_s.gsub('alert', 'error').gsub('notice', 'info') %>
+        toastr['<%= type %>']('<%= f[1] %>');
+      <% end %>
+    </script>
+  <% end %>
+
   <div class="container col-md-3 col-md-offset-4 col-sm-3 col-sm-offset-4">
-    <div>
+    <div class="row">
       <center>
         <%=image_tag("access.png", :size => "100x100")%>
       </center>
     </div>
     <br>
-    <% if notice %>
-    <div id="flash1" class="alert alert-success">
-      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-      <%= notice %>
-    </div>  
-    <% end %>
-    <% if alert %>
-    <div id="flash2" class="alert alert-danger">
-      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-      <%= alert %>
-    </div>
-    <% end %>
     <%= yield %>
   </div>
+
 </body>
 </html>
