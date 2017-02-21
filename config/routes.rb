@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
   get 'dashboard/index'
 
-  resources :ctacteclis
+  resources :medidors
+  resources :clientes
   resources :periodos
   resources :lecturas
   resources :servicios
-  resources :clientes
   resources :facturas
+  resources :ctacteclis
   devise_for :users
   post "facturas/facturar"
   post "facturas/reportefactura"

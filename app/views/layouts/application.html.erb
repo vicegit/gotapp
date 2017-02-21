@@ -53,14 +53,17 @@
     <div class="row">
       <div class="col-sm-3 col-md-2 sidebar">
         <ul class="nav nav-sidebar">
+          <li class="<%= 'active' if current_page?(medidors_path) %>"><%= link_to "Medidores", medidors_path %></li>
           <li class="<%= 'active' if current_page?(clientes_path) %>"><%= link_to "Clientes", clientes_path %></li>
           <li class="<%= 'active' if current_page?(periodos_path) %>"><%= link_to "Períodos", periodos_path %></li>
-          <li class="<%= 'active' if current_page?(lecturas_path) %>"><%= link_to "Lecturas", lecturas_path %></li>
         </ul>
         <ul class="nav nav-sidebar">
+          <li class="<%= 'active' if current_page?(lecturas_path) %>"><%= link_to "Lecturas", lecturas_path %></li>
           <li class="<%= 'active' if current_page?(servicios_path) %>"><%= link_to "Servicios", servicios_path %></li>
           <li class="<%= 'active' if current_page?(facturas_path) %>"><%= link_to "Facturas", facturas_path %></li>
-          <li class="<%= 'active' if current_page?(ctacteclis_path) %>"><%= link_to "Cuenta Corriente Cliente", ctacteclis_path %></li>
+        </ul>
+        <ul class="nav nav-sidebar">
+          <li class="<%= 'active' if current_page?(ctacteclis_path) %>"><%= link_to "Cuenta Corriente Cliente", ctacteclis_path %></li>  
           <li><a href="">Pagos</a></li>
           <li><a href="">Reportes</a></li>
         </ul>

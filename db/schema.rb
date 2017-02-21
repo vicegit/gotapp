@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170215131119) do
+ActiveRecord::Schema.define(version: 20170221221459) do
 
   create_table "clientes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "ci"
@@ -23,8 +23,6 @@ ActiveRecord::Schema.define(version: 20170215131119) do
     t.boolean  "estado_cuenta",  default: true
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
-    t.boolean  "estado_medidor"
-    t.string   "numero_medidor"
   end
 
   create_table "ctacteclis", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -77,6 +75,14 @@ ActiveRecord::Schema.define(version: 20170215131119) do
     t.integer  "exceso"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "medidors", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "numero"
+    t.integer  "medicion"
+    t.boolean  "estado_medidor"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "periodos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

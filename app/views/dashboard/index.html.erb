@@ -4,9 +4,9 @@
 <p>
 	Estas logueado como:
 	<% if current_user.admin? %>
-		Administrador	
+		<b class="logueado">Administrador</b>	
 	<% end %>
 	<% if current_user.lector? %>
-		Lector	
+		<b class="logueado">Lector</b>	
 	<% end %>
 </p>

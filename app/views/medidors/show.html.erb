@@ -1,0 +1,27 @@
+<div class="page-header">
+  <%= link_to medidors_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Atrás
+  <% end %>
+  <%= link_to edit_medidor_path(@medidor), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Editar
+  <% end %>
+  <h1>Medidor</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Numero:</dt>
+  <dd><%= @medidor.numero %></dd>
+
+  <dt>Medicion:</dt>
+  <dd><%= @medidor.medicion %></dd>
+
+  <dt>Estado medidor:</dt>
+  <% if @medidor.estado_medidor == true %>
+    <dd>ACTIVO</dd>
+  <% else %>
+    <dd>INACTIVO</dd>
+  <% end %>
+
+</dl>

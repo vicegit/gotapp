@@ -18,6 +18,10 @@
   <dd><%= @periodo.fecha_vencimiento %></dd>
 
   <dt>Estado de período:</dt>
-  <dd><%= @periodo.estado_periodo %></dd>
+  <% if @periodo.estado_periodo == true %>
+    <dd>ACTIVO</dd>
+  <% else %>
+    <dd>INACTIVO</dd>
+  <% end %>
 
 </dl>

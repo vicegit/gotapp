@@ -32,13 +32,10 @@
   <dt>Observación:</dt>
   <dd><%= @cliente.observacion %></dd>
 
-  <dt>Estado de cuenta:</dt>
-  <dd><%= @cliente.estado_cuenta %></dd>
-
-  <dt>Estado de medidor:</dt>
-  <dd><%= @cliente.estado_medidor %></dd>
-
-  <dt>Nº de medidor:</dt>
-  <dd><%= @cliente.numero_medidor %></dd>
-
+  <dt>Estado cuenta:</dt>
+  <% if @cliente.estado_cuenta == true %>
+    <dd>ACTIVO</dd>
+  <% else %>
+    <dd>INACTIVO</dd>
+  <% end %>
 </dl>
