@@ -32,7 +32,7 @@ class LecturasController < ApplicationController
 
     respond_to do |format|
       if @lectura.save
-        #Generarlectura.generar
+        Generarlectura.generar
         format.html { redirect_to @lectura, notice: 'La lectura fue creada.' }
         format.json { render :show, status: :created, location: @lectura }
       else

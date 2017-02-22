@@ -14,11 +14,21 @@
 
 <div class="form-group">
   <%= f.label :cliente_id, class: "col-sm-2 control-label" do %>
-  Medidor
+  Cliente
   <span class="required">*</span>
   <% end %>
   <div class="col-sm-10">
     <%= f.number_field :cliente_id, class: "form-control" %>
+  </div>
+</div>
+
+<div class="form-group hidden">
+  <%= f.label :periodo_id, class: "col-sm-2 control-label" do %>
+  Periodo
+  <span class="required">*</span>
+  <% end %>
+  <div class="col-sm-10">
+    <%= f.number_field :periodo_id, value: @periodoactual.id, class: "form-control" %>
   </div>
 </div>
 
