@@ -17,7 +17,7 @@ class FacturasControllerTest < ActionDispatch::IntegrationTest
 
   test "should create factura" do
     assert_difference('Factura.count') do
-      post facturas_url, params: { factura: { cliente_id: @factura.cliente_id, condicion: @factura.condicion, erssan: @factura.erssan, fecha: @factura.fecha, iva: @factura.iva, nrofact: @factura.nrofact, total: @factura.total } }
+      post facturas_url, params: { factura: { cliente_id: @factura.cliente_id, condicion: @factura.condicion, erssan: @factura.erssan, fecha: @factura.fecha, iva: @factura.iva, total: @factura.total } }
     end
 
     assert_redirected_to factura_url(Factura.last)
@@ -34,7 +34,7 @@ class FacturasControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update factura" do
-    patch factura_url(@factura), params: { factura: { cliente_id: @factura.cliente_id, condicion: @factura.condicion, erssan: @factura.erssan, fecha: @factura.fecha, iva: @factura.iva, nrofact: @factura.nrofact, total: @factura.total } }
+    patch factura_url(@factura), params: { factura: { cliente_id: @factura.cliente_id, condicion: @factura.condicion, erssan: @factura.erssan, fecha: @factura.fecha, iva: @factura.iva, total: @factura.total } }
     assert_redirected_to factura_url(@factura)
   end
 

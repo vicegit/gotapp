@@ -13,20 +13,6 @@
   <% end %>
 
   <div class="row">
-
-    <div class="col-md-6">
-      <div class="form-group">
-
-        <%= f.label :nrofact, class: "col-sm-3 control-label" do %>
-          Nº de factura
-          <span class="required">*</span>
-        <% end %>    
-        <div class="col-sm-9">
-          <%= f.text_field :nrofact, class: "form-control" %>
-        </div>
-
-      </div>
-    </div>
   
     <div class="col-md-6">
       <div class="form-group">
@@ -48,7 +34,24 @@
       </div>
 
     </div>
+
+    <div class="col-md-6">
+      <div class="form-group">
+
+        <%= f.label :periodo_id, class: "col-sm-3 control-label" do %>
+        Periodo
+        <span class="required">*</span>
+        <% end %>
+        <div class="col-sm-9">
+          <%= f.number_field :periodo_id, class: "form-control" %>
+        </div>
+
+      </div>
+    </div>
+
   </div>
+
+
 
   <div class="row">
 
@@ -181,7 +184,7 @@
 <% end %>
 
 <!-- Modal -->
-<div class="modal fade" id="clienteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<!--<div class="modal fade" id="clienteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -197,12 +200,12 @@
       </div>
     </div>
   </div>
-</div>
+</div>-->
 
 <script>
-  $('#clienteModal').on('shown.bs.modal', function () {
-    $('#factura_nrofact').focus()
-  });
+  //$('#clienteModal').on('shown.bs.modal', function () {
+  //  $('#factura_periodo_id').focus()
+  //});
 
   $('#tabladetalle').DataTable({
     "language": {

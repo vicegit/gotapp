@@ -1,7 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  nrofact: MyString
   cliente_id: 1
   condicion: MyString
   fecha: 2016-09-14
@@ -10,7 +9,6 @@ one:
   total: 1
 
 two:
-  nrofact: MyString
   cliente_id: 1
   condicion: MyString
   fecha: 2016-09-14
