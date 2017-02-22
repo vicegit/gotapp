@@ -84,7 +84,7 @@
   <div class="form-group">
       <%= f.label :medidor_id, "Medidor", class: "col-sm-2 control-label" %>
       <div class="col-sm-10">
-        <%= f.collection_select :medidor_id, @medidors, :id, :numero %>
+        <%= f.collection_select :medidor_id, @medidors, :id, :numero, {prompt: "Seleccione un medidor"}, {class: "form-control"} %>
       </div>
   </div>
 

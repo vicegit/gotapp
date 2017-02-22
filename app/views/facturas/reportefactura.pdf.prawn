@@ -8,6 +8,9 @@ prawn_document do |pdf|
 		pdf.stroke_horizontal_rule
         pdf.move_down 5
 
+        pdf.text "PERIODO DE CONSUMO: #{factura.periodo.periodo} - FECHA DE VENCIMIENTO: #{factura.periodo.fecha_vencimiento}", :align => :center
+        pdf.move_down 10
+
     	pdf.text "COD: #{factura.id} - USUARIO: #{factura.cliente.nombre} - CONDICIÓN: #{factura.condicion} - FECHA: #{factura.fecha}"
     	pdf.move_down 10
 

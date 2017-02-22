@@ -36,7 +36,7 @@ begin
 			END IF;
             
             -- Inserción en la cabecera de factura
-            insert into facturas(cliente_id, condicion, fecha) values(cliente, "CRÉDITO", current_date());
+            insert into facturas(cliente_id, condicion, fecha, periodo_id) values(cliente, "CRÉDITO", current_date(), periodoactual);
             
             select max(id) from facturas into fact;
             

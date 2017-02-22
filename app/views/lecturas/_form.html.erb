@@ -14,11 +14,18 @@
 
 <div class="form-group">
   <%= f.label :cliente_id, class: "col-sm-2 control-label" do %>
-  Cliente
+  Medidor
   <span class="required">*</span>
   <% end %>
   <div class="col-sm-10">
-    <%= f.number_field :cliente_id, class: "form-control" %>
+    <div class="input-group">
+      <%= f.number_field :cliente_id, class: "form-control" %>
+      <span class="input-group-btn">
+        <button type="button" class="btn btn-success btn-md" data-toggle="modal" data-target="#clienteModal">
+          Buscar
+        </button>
+      </span>
+    </div>
   </div>
 </div>
 
@@ -50,3 +57,57 @@
 </div>
 
 <% end %>
+
+
+<!-- Modal -->
+<div class="modal fade" id="clienteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Medidores</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-12 table-responsive">
+            <table id="tablacliente" class="table table-striped table-bordered table-hover">
+              <thead>
+                <tr>
+                  <th>Id</th>
+                  <th>Cliente</th>
+                  <th>Medidor</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <% @clientes.each do |c| -%>
+                <tr>  
+                  <td><%= c.id %></td>
+                  <td><%= c.nombre %></td>
+                  <td><%= c.medidor.numero %></td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+
+$(document).ready(function() {
+    var table = $('#tablacliente').DataTable();
+     
+    $('#tablacliente tbody').on('click', 'tr', function () {
+        var data = table.row( this ).data();
+        alert( 'Has clicado en '+data[0]+'\'s row' );
+    } );
+} );
+</script>

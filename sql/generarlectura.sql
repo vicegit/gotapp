@@ -12,12 +12,15 @@ begin
     DECLARE consumominimo int default 0;
     DECLARE consumoexceso int default 0;
     DECLARE medidor int default 0;
+    DECLARE periodo int default 0;
+    DECLARE verif int;
     DECLARE hecho bool default false;
     DECLARE cursor_lectura CURSOR FOR SELECT lecturas.id, lecturas.cliente_id, lecturas.actual FROM lecturas WHERE lecturas.periodo_id = (select max(id) from periodos);
     
     -- Declaración de un manejador de error tipo NOT FOUND.
 	DECLARE CONTINUE HANDLER FOR SQLSTATE '02000' SET hecho = true;
     
+    select max(id) from periodos into periodo;
     select m3 from servicios where id=1 into consumominimo;
     
     OPEN cursor_lectura;
@@ -28,6 +31,8 @@ begin
 				LEAVE loop1;
 			END IF;
             
+		select lecturas.consumo from lecturas where lecturas.cliente_id=lecturacliente and lecturas.periodo_id=periodo into verif;
+		if (verif is null) then
             select medidors.id, medidors.medicion from medidors, clientes where (medidors.id=clientes.medidor_id and clientes.id=lecturacliente) into medidor, lecturaanterior;
             set totalconsumo = (lecturaactual - lecturaanterior);
             
@@ -39,7 +44,9 @@ begin
             
             update lecturas set consumo=totalconsumo, exceso=consumoexceso where id=lecturaid;
             update medidors set medicion=lecturaactual where (medidors.id=medidor);
-			
+            
+		 end if;
+        
 		END LOOP loop1;
     CLOSE cursor_lectura;
 
