@@ -3,6 +3,7 @@ class Cliente < ApplicationRecord
 	has_many :lecturas
 	has_many :facturas
 	has_many :ctacteclis
+	belongs_to :medidor
 
 	#Validaciones de ci
 	validates :ci, :presence => {:message => "Debe ingresar una C. I. Nº"}, 

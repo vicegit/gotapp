@@ -5,7 +5,6 @@ one:
   periodo_id: 1
   fecha: 2016-09-14
   lector: MyString
-  anterior: 1
   actual: 1
   consumo: 1
   exceso: 1
@@ -15,7 +14,6 @@ two:
   periodo_id: 1
   fecha: 2016-09-14
   lector: MyString
-  anterior: 1
   actual: 1
   consumo: 1
   exceso: 1

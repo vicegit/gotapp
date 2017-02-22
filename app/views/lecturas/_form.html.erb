@@ -13,35 +13,16 @@
 <% end %>
 
 <div class="form-group">
-
   <%= f.label :cliente_id, class: "col-sm-2 control-label" do %>
   Medidor
   <span class="required">*</span>
   <% end %>
   <div class="col-sm-10">
-    <div class="input-group">
-      <%= f.number_field :cliente_id, class: "form-control" %>
-      <span class="input-group-btn">
-        <button type="button" class="btn btn-success btn-md" data-toggle="modal" data-target="#clienteModal">
-          Buscar
-        </button>
-      </span>
-    </div>
+    <%= f.number_field :cliente_id, class: "form-control" %>
   </div>
-
 </div>
 
 <div class="form-group">
-
-  <%= f.label :periodo_id, class: "col-sm-2 control-label" %>
-  <div class="col-sm-10">
-    <%= f.number_field :periodo_id, class: "form-control", value: @periodoactual.id %>
-  </div>
-
-</div>
-
-<div class="form-group">
-
   <%= f.label :actual, class: "col-sm-2 control-label" do %>
   Actual
   <span class="required">*</span>
@@ -49,101 +30,13 @@
   <div class="col-sm-10">
     <%= f.number_field :actual, class: "form-control" %>
   </div>
-
 </div>
 
 <div class="form-group">
-
   <div class="col-sm-offset-2 col-sm-10">
     <%= f.submit "Guardar", class: "btn btn-primary" %>
     <%= link_to "Cancelar", lecturas_path, class: "btn btn-default" %>
   </div>
-
 </div>
+
 <% end %>
-
-<!-- Modal -->
-<div class="modal fade" id="clienteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Buscar medidor</h4>
-      </div>
-      <div class="modal-body">
-        <!--<ul>
-          <% @lecturas.each do |lectura| %>
-          <li> <%= lectura.cliente.nombre %> </li>
-          <% end %>
-        </ul>-->
-        <div class="table-responsive">
-          <table id="tablacliente"class="table table-striped table-bordered table-hover">
-            <thead>
-              <tr>
-                <th>Id</th>
-                <th>Nº de medidor</th>
-                <th>Nombre de usuario</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              <% @clientes.each do |cliente| %>
-              <tr>
-                <td><%= cliente.id %></td>
-                <td><%= cliente.numero_medidor %></td>
-                <td><%= cliente.nombre %></td>
-              </tr>  
-              <% end %>
-            </tbody>
-          </table>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<script>
-$(document).ready(function() {
-  $('#clienteModal').on('shown.bs.modal', function () {
-
-  });
-
-  var table = $('#tablacliente').DataTable({
-    "language": {
-      "sProcessing":     "Procesando...",
-      "sLengthMenu":     "Mostrar _MENU_ registros",
-      "sZeroRecords":    "No se encontraron resultados",
-      "sEmptyTable":     "Ningún dato disponible en esta tabla",
-      "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-      "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
-      "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
-      "sInfoPostFix":    "",
-      "sSearch":         "Buscar:",
-      "sUrl":            "",
-      "sInfoThousands":  ",",
-      "sLoadingRecords": "Cargando...",
-      "oPaginate": {
-        "sFirst":    "Primero",
-        "sLast":     "Último",
-        "sNext":     "Siguiente",
-        "sPrevious": "Anterior"
-      },
-      "oAria": {
-        "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
-        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-      }
-    }
-  });
-
-$('#tablacliente tbody').on('click', 'tr', function () {
-  var data = table.row( this ).data();
-  var cliente_id = data[0];
-  $("#lectura_cliente_id").val(cliente_id);
-  $('#clienteModal').modal('hide');
-  $('#lectura_actual').focus();
-} );
-} );
-
-</script>

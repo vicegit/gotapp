@@ -11,20 +11,24 @@ class ClientesController < ApplicationController
   # GET /clientes/1
   # GET /clientes/1.json
   def show
+    @medidors = Medidor.all
   end
 
   # GET /clientes/new
   def new
     @cliente = Cliente.new
+    @medidors = Medidor.all
   end
 
   # GET /clientes/1/edit
   def edit
+    @medidors = Medidor.all
   end
 
   # POST /clientes
   # POST /clientes.json
   def create
+    @medidors = Medidor.all
     @cliente = Cliente.new(cliente_params)
 
     respond_to do |format|
@@ -70,6 +74,6 @@ class ClientesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cliente_params
-      params.require(:cliente).permit(:ci, :nombre, :direccion, :telefono, :fecha_contrato, :fecha_conexion, :observacion, :estado_cuenta)
+      params.require(:cliente).permit(:ci, :nombre, :direccion, :telefono, :fecha_contrato, :fecha_conexion, :observacion, :estado_cuenta, :medidor_id)
     end
 end
