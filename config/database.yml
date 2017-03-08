@@ -11,11 +11,12 @@ default: &default
 
 development:
   adapter: mysql2
+  encoding: utf8
+  database: gotapp
   username: root
   password: 123
   host: 127.0.0.1
   port: 3306
-  database: gotapp
   pool: 5
   timeout: 5000
 
